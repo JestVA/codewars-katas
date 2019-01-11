@@ -26,5 +26,11 @@ const duplicateEncode = word => {
   return solution
 }
 
-
-// (~"success".indexOf('s')) ? console.log('truthy') : console.log('falsy')
+/*
+Things I have learned:
+1. Using "~" to evaluate truthy / falsy 
+(~"success".indexOf('s')) ? console.log('truthy') : console.log('falsy')
+2. Remember to use the spread "..." operator more often. 
+Like in this example, [...word.toLowerCase()] spreads all characters of string in an array and makes using .split`` redundant
+3. If you find yourself using too many variables you are probably missing an easier way to solve things  
+*/
