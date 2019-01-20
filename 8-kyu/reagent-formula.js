@@ -13,6 +13,6 @@ const isValid = formula => {
       return true
     } else if (formula.indexOf(5) > -1 || formula.indexOf(6) > -1) {
       return false
-    } 
-  } return true
+    } return true
+  } return false
 }
