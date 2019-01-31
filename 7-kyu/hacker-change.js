@@ -11,3 +11,11 @@ const change = (name,items,payment) => {
     return fair
   }
 }
+
+// What I learned:
+// That in this case you can use payment as accumulator and the item's value as current: [1, 2, 3].reduce((a, c) => a - c, 10)
+// [items].reduce((a, c) => a - c, payment)
+// 1st iteration: 10 - 1 = 9
+// 2nd iteration 9 - 2 = 7
+// 3rd iteration 7 - 3 = 4
+// That's the change, "4"
