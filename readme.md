@@ -14,8 +14,11 @@ With each kata that I solve I will spend considerable time skimming through the 
 
 This makes me a _better_ coder as well.
 
-See how I solve a kata in 7 lines whilst a solution is possible in 2 lines makes for great __A-HA__! moments. 
+When I solve a kata in 7 lines whilst a solution is possible in 2 lines makes for great __A-HA__! moments. 
 
-Good luck, see you on [codewars.com](https://www.codewars.com/users/JestVA)
+That's it, I hope that you will be convinced to do katas on your own as well.
 
-Mastering [markdown](https://guides.github.com/features/mastering-markdown/)
+Good luck and see you on [codewars.com](https://www.codewars.com/users/JestVA)
+
+A handy resource for:
+* Mastering [markdown](https://guides.github.com/features/mastering-markdown/)
