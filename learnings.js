@@ -15,6 +15,7 @@ let newArrCamel= newArr.map(item=> item.charAt(0).toUpperCase() + item.substr(1)
 // good use of the first function and the return with ternary condition
 // I also used more unshift() - add an element in front of array
 // substring and slice are similar 
+
 function generateHashtag (str) {
     return str.length > 140 || str === '' ? false :
       '#' + str.split(' ').map(capitalize).join('');
@@ -23,4 +24,6 @@ function generateHashtag (str) {
   function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-  
+
+// Basic username regex test (only small letters, 0-9 numbers, length between 4-16 including and no white space allowed)
+/^[a-z0-9_]{4,16}\S*$/.test(username) 
