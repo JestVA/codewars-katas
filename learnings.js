@@ -29,3 +29,14 @@ function generateHashtag (str) {
 /^[a-z0-9_]{4,16}\S*$/.test(username); 
 // ^    - start of string 
 // $    - end of string
+// ######### THIS IS THE CORRECT REGEX ACTUALLY ############
+/^[a-z0-9_]{4,16}$/
+
+// ^[a-z0-9_]{0,}$
+// It's important to use {0,} it matches any preceding token 0 or more times 
+
+// Too cool to ignore (only as an example of thinking inversely. As a code this is broken and has bug (i.e. non char letters like #$%))
+function validateUsr(arg) {
+    return arg.length > 3 ? !/[A-Z ]/.test(arg) : false;
+  };
+// remember, thinking outside the box
