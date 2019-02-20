@@ -26,4 +26,6 @@ function generateHashtag (str) {
   }
 
 // Basic username regex test (only small letters, 0-9 numbers, length between 4-16 including and no white space allowed)
-/^[a-z0-9_]{4,16}\S*$/.test(username) 
+/^[a-z0-9_]{4,16}\S*$/.test(username); 
+// ^    - start of string 
+// $    - end of string
