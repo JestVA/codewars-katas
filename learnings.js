@@ -40,3 +40,29 @@ function validateUsr(arg) {
     return arg.length > 3 ? !/[A-Z ]/.test(arg) : false;
   };
 // remember, thinking outside the box
+
+// ! replace char in string 
+
+// another while loop example
+
+function remove(s,n){
+    while(n) {
+      s = s.replace("!", "");
+      n--;
+    }
+    return s;
+  }
+
+// good to keep in mind you can decrement to make sure you are not stuck 
+// in infinite loop
+
+function remove(s, n) {
+    return s.replace(/!/g, c => n-- > 0 ? "" : c)
+  }
+
+// or use a regex to do the replace 
+
+/*
+String.prototype.replace()
+Used to find a match between a regular expression and a string, and to replace the matched substring with a new substring.
+*/
