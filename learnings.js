@@ -65,4 +65,13 @@ function remove(s, n) {
 /*
 String.prototype.replace()
 Used to find a match between a regular expression and a string, and to replace the matched substring with a new substring.
+
+The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the 
+
+!!!!! replacement can be a string or a function !!!! (again, have to learn better to make use of functions)
+
+
+to be called for each match. If pattern is a string, only the first occurrence will be replaced.
+
+
 */
