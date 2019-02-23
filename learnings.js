@@ -75,3 +75,15 @@ to be called for each match. If pattern is a string, only the first occurrence w
 
 
 */
+
+function remove(s,n){
+    // initialize loop with for and add condition (i<n)
+    // and replace string value "!" with "empty string"
+    // that many times 
+    // This assumes the operation will be done from 
+    // left to right 
+    for (var i=0;i<n;i++) s=s.replace("!","");
+    return s;
+  }
+
+// it was this simple in fact : | 
