@@ -1,3 +1,5 @@
+![](https://www.codewars.com/users/JestVA/badges/large)
+
 # Kata-log(ue)
 
 This will be a collection of solutions to the katas that I complete on [codewars.com](https://www.codewars.com/users/JestVA) using the magnificent `JavaScript` language.
