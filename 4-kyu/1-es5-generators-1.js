@@ -21,6 +21,7 @@ const dummySeq = () => () => "dummy";
 // 1, 1, 2, 6, 24, ...
 const factorialSeq = (current) => (current) => {
 	
+	// read this https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 	console.log(current);
 	
 	// need to store state somehow 
