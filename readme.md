@@ -2,23 +2,20 @@
 
 # Kata-log(ue)
 
-This will be a collection of solutions to the katas that I complete on [codewars.com](https://www.codewars.com/users/JestVA) using the magnificent `JavaScript` language.
+This is a collection of solutions to the katas that I complete on [codewars.com](https://www.codewars.com/users/JestVA) using `JavaScript`.
 
-* // 8 kyu
-* // 7 kyu
-* // 6 kyu
+As the kyu gets lower, the difficulty of the kata increases.
 
-__...and so on__
+* 8 kyu (good for starters)
+* 7 kyu (good for cardio 🤣)
+* .... (mastering fundamentals and more advanced stuff)
+* 1 kyu (über coder)
 
-I have noticed that _doing katas_ is one of the best ways for me to ingrain deep knowledge of the language. 
+_doing katas_ is one of the best ways to ingrain deep knowledge of programming techniques and concepts. 
 
-With each kata that I solve I will spend considerable time skimming through the solutions to see how other coders aproached the same problem and learn from their solutions.
+At the end of each kata, don't forget to check other coder's solutions as the world is quite creative and it will open your mind to different algorithms. This makes you a _better_ coder.
 
-This makes me a _better_ coder as well.
-
-When I solve a kata in 7 lines whilst a solution is possible in 2 lines makes for great __A-HA__! moments. 
-
-That's it, I hope that you will be convinced to do katas on your own as well.
+That's it, I hope that you are convinced to start on your own journey doing katas.
 
 Good luck and see you on [codewars.com](https://www.codewars.com/users/JestVA)
 
