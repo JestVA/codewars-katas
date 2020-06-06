@@ -1,66 +1,62 @@
 /*
+
 ES5 Generators(i)
 https://www.codewars.com/kata/53c29a6abb5187180d000b65/train/javascript
+
 */
 
-const generator = (sequencer, ...args) => ({
-	next: sequencer,
-	state: null
-});
 
-
-const dummySeq = () => "dummy";
-
-// 1, 1, 2, 6, 24, ...
-const factorialSeq = () => 
+// This is parent func., doesn't need additional
+// context of `thisArg` so it is ok to write as ES6 => func.
+const generator = (sequencer, ...args) => 
 {
-	if(! this.state)
-	{
-		this.state = 1
-		return this.state; // 0!
-	}
+	const state = {
+		iterationCount: 0,
+		nextIndex: 1
+	};
 
-	let result = 1;
+	const withStateSequencer = sequencer.bind(state);
 
-	for(let i = this.state; i > 0; i--)
-	{
-		result *= i;
-	}
+	return {
+			next: withStateSequencer,
+	};
+};
 
-	this.state += 1;
-	return result;
-}
+const dummySeq = () => "dummy"; // doesn't need `thisArg`, ok as arrow func.
 
+// since this function is defined outside of the context
+// where it will be called, we write it with function keyword
+// to enable binding of context from wrapper where we will
+// store some internal state for iterator
+// and use the sequencer to update parent state
+function factorialSeq()  
+{ 
+	let factorial = 1;
 
+	for(let i = this.iterationCount; i > 0; i--)
+		factorial *= i;
 
+	this.iterationCount++;
 
-
-
-
-
-// const factorialSeq = (current) => (current) => {
-	
-// 	// read this https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
-// 	console.log(current);
-	
-// 	// need to store state somehow 
-
-// 	let [prev, curr] = [0, 1];
-// 	for(;;) { // this empty condition is taken to evaluate to 1
-// 		[prev, curr] = [curr, prev + curr];
-		
-// 		// updating state variable here does not work 
-// 		current = 'something'
-		
-// 		return curr;
-// 	}
-
-// }
+	return factorial;
+};
 
 
+// created a test benchmark on jsperf.com
+// somewhere between O(N) and O(2N) complexity
+// https://jsperf.com/fibsequencer/1
+// comparing to classic recurrsion, whileloop, memoization techniques
+// found out generator like this is on par with memoization
+// but 94% slower than classic loop - resolves in linear time
+// space complexity constant
+function fibonacciSeq() { 
 
+  let [, curr] = [this.iterationCount, this.nextIndex];
+  
+ 	[this.iterationCount, this.nextIndex] = [this.nextIndex, this.iterationCount + this.nextIndex];
+ 
+  return curr;
 
-function fibonacciSeq() {
 }
 
 function rangeSeq(start, step) {
