@@ -18,7 +18,7 @@ const generator = (sequencer, ...args) =>
 	const withStateSequencer = sequencer.bind(state);
 
 	return {
-			next: withStateSequencer,
+		next: withStateSequencer,
 	};
 };
 
@@ -51,11 +51,11 @@ function factorialSeq()
 // space complexity constant
 function fibonacciSeq() { 
 
-  let [, curr] = [this.iterationCount, this.nextIndex];
-  
- 	[this.iterationCount, this.nextIndex] = [this.nextIndex, this.iterationCount + this.nextIndex];
- 
-  return curr;
+	let [, curr] = [this.iterationCount, this.nextIndex];
+
+	[this.iterationCount, this.nextIndex] = [this.nextIndex, this.iterationCount + this.nextIndex];
+
+	return curr;
 
 }
 
