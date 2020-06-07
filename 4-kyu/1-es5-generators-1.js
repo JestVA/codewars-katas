@@ -122,7 +122,7 @@ Resources:
 	# Cassidy Williams (Casidoo) presentation on functional programming:
 	https://github.com/cassidoo/talks/blob/master/Functional%20JavaScript/functional-js.pdf
 		
-		> writing fibonacci using clojures
+		> writing fibonacci using closures
 
 		function fibonacci(a, b) {
 			return () => {
@@ -139,7 +139,7 @@ Resources:
 	# Binding functions
 	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind
 
-	# Clojures
+	# Closures
 	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 
 	# Bitwise operators:
@@ -153,3 +153,60 @@ Resources:
 
 
 */
+
+
+/*
+ EPILOGUE
+ - learnt a ton about closure, in my solutions I did not use clojures
+ - wish I did! So I tinkered with some functions to return a function and benefit from lexical scope
+ - below are some explorations
+*/
+
+// SET 1
+const generator = (sequencer, ...args) => ({ next: sequencer(...args) });
+
+const incrementNumber = (a) => () => console.log(a++);
+
+const popFirstArg = (...args) => (r = args.shift()) => console.log(r);
+
+const it = generator(incrementNumber, 20,12,33,44);
+
+const notIt = generator(popFirstArg, 1,2,3,4);
+
+it.next(); // 0
+it.next(); // 1
+it.next(); // 2
+it.next(); // 3
+it.next(); // 4
+it.next(); // 5
+
+notIt.next(); // 1
+notIt.next(); // 2
+notIt.next(); // 3
+notIt.next(); // 4
+
+
+// SET 2
+function generator(sequencer)
+{
+  return {
+    next: sequencer.apply(null, [].slice.call(arguments, 1))
+  }
+}
+
+
+function calledWithArgs(one = 0, two = 0)
+{
+ 
+  return function()
+  {
+    console.log(one, two);
+    one += 5;
+    two += 10;
+    return one + two;
+  };
+}
+
+const it = generator(calledWithArgs, [1, 2]);
+it.next();
+it.next();
