@@ -15,13 +15,30 @@ var DI = function (dependency) {
 
 // Should return new function with resolved dependencies
 DI.prototype.inject =  function(resolve) {
-	console.log(resolve)
-	console.log(this.dependency);
+	// 	console.log(resolve.toString())
+	// 	console.log(this.dependency);
 	const deps = [];
 	for(const dep of Object.keys(this.dependency))
 		deps.push(this.dependency[dep]);
-	return () => resolve(...deps); // got something here 
-	
+
+	const functionArgsRegex = /\(.*\)/;
+	const fArgs = resolve.toString().match(functionArgsRegex);
+
+	if(!fArgs)
+		throw Error('Need to pass a function to inject');
+
+	// 	console.log(deps);
+	// still need to check they exist dammit 
+	const sanitizedArgs = fArgs[0].replace('(', '').replace(')', '').split(',');
+	const redyFredy = sanitizedArgs.map(arg => {
+		console.log(arg, 'in loop')
+		console.log(this.dependency, 'in loop')
+		return this.dependency[arg.trim()]
+	} ).filter(i => i);
+	console.log(redyFredy)
+
+	return () => resolve(...redyFredy); 
+
 } 
 
 
