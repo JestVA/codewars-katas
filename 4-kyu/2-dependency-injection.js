@@ -2,45 +2,27 @@
 	https://www.codewars.com/kata/5302d655be2a91068b0001fb/train/javascript
 */
 
-
 /**
  * Constructor DependencyInjector
  * @param {Object} - object with dependencies
  */
-var DI = function (dependency) {
+const DI = function (dependency) {
 	this.dependency = dependency;
-	console.log(this.dependency);
-	
 };
 
-// Should return new function with resolved dependencies
-DI.prototype.inject =  function(resolve) {
-	// 	console.log(resolve.toString())
-	// 	console.log(this.dependency);
-	const deps = [];
-	for(const dep of Object.keys(this.dependency))
-		deps.push(this.dependency[dep]);
+DI.prototype.inject = function (resolve) {
+	// captures the function arguments chunk
+	const fArgs = resolve.toString().match(/\(.*\)/);
 
-	const functionArgsRegex = /\(.*\)/;
-	const fArgs = resolve.toString().match(functionArgsRegex);
+	if (!fArgs) throw Error("Need to pass a function to inject");
 
-	if(!fArgs)
-		throw Error('Need to pass a function to inject');
+	const sanitizedArgs = fArgs[0].replace("(", "").replace(")", "").split(",");
+	const deps = sanitizedArgs
+		.map(arg => this.dependency[arg.trim()])
+		.filter(Boolean);
 
-	// 	console.log(deps);
-	// still need to check they exist dammit 
-	const sanitizedArgs = fArgs[0].replace('(', '').replace(')', '').split(',');
-	const redyFredy = sanitizedArgs.map(arg => {
-		console.log(arg, 'in loop')
-		console.log(this.dependency, 'in loop')
-		return this.dependency[arg.trim()]
-	} ).filter(i => i);
-	console.log(redyFredy)
-
-	return () => resolve(...redyFredy); 
-
-} 
-
+	return () => resolve(...deps);
+};
 
 /*
 	Research:
